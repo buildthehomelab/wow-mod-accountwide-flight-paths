@@ -1,0 +1,37 @@
+[worldserver]
+
+########################################
+# mod-accountwide-flight-paths
+#
+# A flight path discovered by one character is known to every other character on the same
+# account the next time they log in. Characters only get flight paths their own faction can use.
+# Bots are ignored.
+########################################
+
+#
+#    AccountWideFlightPaths.Enable
+#        Description: Master switch.
+#        Default:     1
+#
+
+AccountWideFlightPaths.Enable = 1
+
+#
+#    AccountWideFlightPaths.Announce
+#        Description: Tell the player in chat how many flight paths they got from their other
+#                     characters when they log in.
+#        Default:     1
+#
+
+AccountWideFlightPaths.Announce = 1
+
+#
+#    AccountWideFlightPaths.ShareDeathKnightStartNodes
+#        Description: Death knights are created knowing every flight path in Kalimdor and the
+#                     Eastern Kingdoms. With 0, a death knight only shares the Outland and
+#                     Northrend flight paths it discovers, so making one doesn't unlock the old
+#                     world for your other characters. 1 shares them all.
+#        Default:     0
+#
+
+AccountWideFlightPaths.ShareDeathKnightStartNodes = 0
