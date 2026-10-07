@@ -25,6 +25,16 @@ decides when an alt can go there.
 Bots from mod-playerbots are skipped both ways: they don't add flight paths to their account and
 don't get taught any.
 
+## Requirements
+
+- AzerothCore wotlk (master) with the WotLK 3.3.5a (12340) client.
+- No client patch or addon. The table is created in the characters database automatically.
+- Works with [mod-individual-progression](https://github.com/ZhengPeiRu21/mod-individual-progression),
+  which still decides when an alt can fly to Outland or Northrend.
+- Optional: [mod-playerbots](https://github.com/mod-playerbots/mod-playerbots). Bots are skipped
+  whether or not it is installed; the module detects them with `WorldSession::IsHeadless()` when
+  the core has it.
+
 ## Install
 
 Clone it into your AzerothCore `modules` folder **as `mod-accountwide-flight-paths`**, without the
@@ -60,6 +70,22 @@ in on your alts.
 - **Logout:** saves once more.
 - **Deleting the account's last character:** the account's flight path list is cleared.
 
+## Troubleshooting
+
+- **The table was not created.** It is added by an update file in the characters database, which
+  only runs while `Updates.EnableDatabases` includes the characters database (it does by default).
+- **An alt does not get the flight paths.** Log in once on the character that has explored the most
+  first, then on your alts. Flight paths of the other faction are skipped on purpose.
+- **A new death knight does not share the old world.** Death knights start knowing every Kalimdor
+  and Eastern Kingdoms path, so those are not shared unless
+  `AccountWideFlightPaths.ShareDeathKnightStartNodes = 1`.
+- **An alt knows the Outland or Northrend path but cannot get there.** That is
+  mod-individual-progression gating the continent, not this module.
+
+## Credits
+
+Author: [buildthehomelab](https://github.com/buildthehomelab)
+
 ## License
 
-MIT. See `LICENSE`.
+MIT. See [LICENSE](LICENSE).
